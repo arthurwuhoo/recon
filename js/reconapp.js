@@ -41,7 +41,6 @@ function geoCode(address){
         if (status == google.maps.GeocoderStatus.OK) { 
             
             var myylocation = data[0];
-            
             theaddress = myylocation.formatted_address;
             geo_add.push(theaddress);
             console.log(myylocation);
@@ -56,23 +55,19 @@ function geoCode(address){
 
 function addAddress() {
     addresses.push($("#address").val());
+    $('li').remove();
     $("#address").val("");
     geo_add = [];
     corLat = [];
     corLong = [];
     result = "";
+    
     for(i = 0; i < addresses.length; i++){
-            
         //input google search query here
-            geoCode(addresses[i]); 
-            var message = "<li>" + addresses[i] + "</li>";
-            result += message;
+            geoCode(addresses[i]);
+            $('ul').append('<li class= "list-group-item" data-toggle="modal" data-target="#editModal">' + addresses[i] + '<span class="glyphicon glyphicon-remove"></span></li>');
         }
-
-    $("#thelist").html(result);
 }
-
-
 
 //making a map?
 
@@ -112,11 +107,9 @@ if (estab == "gym"){
 }
 
 function callback_coffee(results, status) {
-
     coffee_store = [];
   
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-    
       for (var i = 0; i < results.length; i++) {
       coffee_store.push(results[i]);
     }
@@ -128,10 +121,7 @@ function callback_coffee(results, status) {
         coffee_arr.push(0);    
     }
     
-
-  
 }
-
 function callback_gym(results, status) {
 
     gyms_store = [];
@@ -150,13 +140,10 @@ function callback_gym(results, status) {
     }
 
 }
-
 function callback_subway(results, status) {
-
     subway_store = [];
     
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-     
       
       for (var i = 0; i < results.length; i++) {
        subway_store.push(results[i]);
@@ -170,15 +157,24 @@ function callback_subway(results, status) {
         console.log('huh');
         subway_arr.push(0);
     }
-    
   
 }
 
 
 // the coffee loop
 
-$("#calculate").click(function() {
+///////////////////////////////////////////////////////////////////
+// PROBLEMS HERE
+function doSomethingFirst() {
 
+}
+// PROBLEMS HERE
+
+
+///////////////////////////////////////////////////////////////////
+
+function calculator() {
+    
     coffee_arr = [];
     gyms_arr = [];
     subway_arr = [];
@@ -189,11 +185,14 @@ $("#calculate").click(function() {
         addressLookup(corLat[i], corLong[i], "gym", 250);
         addressLookup(corLat[i], corLong[i], "subway_station", 250);
     }
+}
+
+$("#getrecon").click(function(){
+    doSomethingFirst();
+    calculator();
 });
 
 // conditional events
-
-
 
 $("#filler_button").click(function(){
  $("#loading").fadeOut("slow");
@@ -209,6 +208,30 @@ $("#address").keyup(function(e) {
         addAddress();
     }
 });
+
+
+//load the list
+function loadList(items){
+		$('li').remove();
+		if(items.length > 0) {
+			for(var i = 0; i < items.length; i++) {
+				$('ul').append('<li class= "list-group-item" data-toggle="modal" data-target="#editModal">' + items[i] + '<span class="glyphicon glyphicon-remove"></span</li>');
+			}
+		}
+	};
+
+// deleting an item off the list
+$('ul').delegate("span", "click", function(event){
+		event.stopPropagation();
+		index = $('span').index(this);
+		$('li').eq(index).remove();
+    
+		addresses.splice(index, 1);
+        corLat.splice(index, 1);
+        corLong.splice(index, 1);
+        geo_add.splice(index, 1);
+    
+	});
 
 
 var fullarray;
