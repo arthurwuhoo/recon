@@ -1,0 +1,81 @@
+h1, h2, h3, h4, h5, h6, a, p {
+font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+.mainpage {
+    background-image: url("https://static.pexels.com/photos/4138/landscape-mountains-nature-fog.jpeg");
+
+}
+
+.full {
+    height: 100%;
+}
+
+
+div.loader { 
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 15;
+  background: url(images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow-x:hidden;
+  overflow-y:hidden;
+}
+
+div.loader #logo {
+    position: absolute;
+    width:300px;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+#loading_text {
+    right: 0;
+    left: 0;
+    margin: auto;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: aliceblue;
+    
+}
+
+/* ghost */
+
+.ghost-button-transition {
+    position: fixed;
+    width:300px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    padding-top: 500px;
+font-family: 'Source Sans Pro', sans-serif;
+    
+font-size: 20px;
+font-weight: 300;
+
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #fff;
+  border: 1px solid #fff;
+  background-color: transparent;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out,
+              color 0.2s ease-out;
+}
+.ghost-button-transition:hover,
+.ghost-button-transition:active {
+  background-color: #fff !important;
+  color: #000 !important;
+  transition: background-color 0.3s ease-in,
+              color 0.3s ease-in;
+}

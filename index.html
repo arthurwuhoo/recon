@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recon</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxJLjh0aRLee7dhnzn5IKAB37Hvfx1kOw&libraries=places"></script>
+    
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+</head>
+<body>
+
+<div id = "loading" class = "loader" style = "text-align: center">
+<img id = "loader_image" src="css/images/background.jpg" style="max-width: 120%; height: auto;"/>
+<img id = "logo" src = "css/images/logo.png" style ="position: absolute; top: 20%; z-index: 20"/>
+<br>
+<button id = "filler_button" class="ghost-button-transition" style ="position: absolute; top: 50%; z-index: 20">
+    Get Started
+    </button>
+<br>
+    <div id = "loading_text" style ="position: absolute; top: 65%; z-index: 20">
+    <p> Designed + developed by Arthur Wu</p>
+    </div>
+</div>
+    
+    
+<!-- Actual App -->
+    <!-- Actual App -->
+    <!-- Actual App -->
+    <!-- Actual App -->
+    <!-- Actual App -->
+    <!-- Actual App -->
+    <!-- Actual App -->
+    
+<div class="full">
+<div class="row">
+    <div class="col-md-4" style = "padding-left: 3%;">
+    
+        <h1>Welcome to Recon</h1>
+        <br>
+        <br>
+        <div class="group">   
+        <input id="address" placeholder = "Example Address">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Name</label>
+        </input>
+
+        <br>
+        <br>
+
+        <button id="additem">Add item</button>
+        <button id="calculate">Calculate</button>
+        <button id="maketable">Make Table</button>
+        </div>
+
+        <div id = "container">
+        <ul id = "thelist">
+        </ul>    
+        </div>
+
+    
+
+    </div>
+    <div class="col-md-8 mainpage">
+         
+      <table id = "thetable" class = "responsive-table">
+        <thead>
+          <tr>
+              <th data-field="id">Address</th>
+              <th data-field="name">Coffeeshops</th>
+              <th data-field="name">Grocery Stores</th>
+              <th data-field="name">Subway Stations</th>
+          </tr>
+        </thead>
+
+        <tbody id = "innerworkings">
+          <tr>
+            <td>Alvin</td>
+            <td>Eclair</td>
+            <td>$0.87</td>
+          </tr>
+        </tbody>
+      </table>
+            
+        
+    <!--// put stuff for your html here-->
+        <div id="map"></div>
+    </div>
+
+</div>
+</div>
+
+
+    
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+          
+    <script src="js/reconapp.js" type="text/javascript" charset="utf-8"></script>
+    
+</body>
+</html>
