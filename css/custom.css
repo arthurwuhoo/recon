@@ -123,3 +123,14 @@ input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
           transform: translateY(-20px);
   visibility: visible !important;
 }
+
+
+/* adding a hover state*/
+li:hover {
+	background-color: aliceblue;
+	transition: 0.7s;
+	cursor: pointer;
+}
+span{
+	float: right;
+}

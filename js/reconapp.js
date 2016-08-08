@@ -225,15 +225,8 @@ newarray = fullarray[0].map(function(col, i) {
     return row[i] 
   })
 });
-
-output = makeTableHTML(newarray);  
-
+output = makeTableHTML(newarray);
 });
 
-// make a 2d array out of the three arrays
 
-
-
-// run the transposed array throgh the "make table" function
-
-// append the made table to HTML
+// need to add some different 
