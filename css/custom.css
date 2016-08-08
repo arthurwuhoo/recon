@@ -59,19 +59,14 @@ div.loader #logo {
 /* ghost */
 
 .ghost-button-transition {
-    position: fixed;
-    width:300px;
-    right: 0;
-    left: 0;
-    margin: auto;
-    padding-top: 500px;
+
+
 font-family: 'Source Sans Pro', sans-serif;
     
 font-size: 20px;
 font-weight: 300;
 
   display: inline-block;
-  width: 200px;
   padding: 8px;
   color: #fff;
   border: 1px solid #fff;
@@ -92,15 +87,39 @@ font-weight: 300;
 
 /* input button*/
  /* label color */
-   .input-field label {
-     color: #000;
-   }
-   /* label focus color */
-   .input-field input[type=text]:focus + label {
-     color: #000;
-   }
-   /* label underline focus color */
-   .input-field input[type=text]:focus {
-     border-bottom: 1px solid #000 !important;
-     box-shadow: 0 1px 0 0 #000 !important;
-   }
+h1, input::-webkit-input-placeholder, button {
+  font-family: 'roboto', sans-serif;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input {
+  width: 200px;
+  display: block;
+  border: none;
+  padding: 10px 0;
+  border-bottom: solid 1px #ffffff;
+  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #0071ef 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #0071ef 4%);
+  background-position: -200px 0;
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: aliceblue;
+}
+input:focus, input:valid {
+  box-shadow: none;
+  outline: none;
+  background-position: 0 0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
+  color: #ffffff;
+  font-size: 11px;
+  font-family: 'Source Sans Pro', sans-serif;
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+  visibility: visible !important;
+}
