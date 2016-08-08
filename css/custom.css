@@ -46,6 +46,16 @@ div.loader #logo {
     
 }
 
+#bluegrad {
+    height: 1000px;
+    overflow-y: hidden;
+    background: #00B8FF; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, #00B8FF, #007FFF); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right,  #00B8FF, #007FFF); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right,  #00B8FF, #007FFF); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #00B8FF, #007FFF); /* Standard syntax (must be last) */
+}
+
 /* ghost */
 
 .ghost-button-transition {
@@ -79,3 +89,18 @@ font-weight: 300;
   transition: background-color 0.3s ease-in,
               color 0.3s ease-in;
 }
+
+/* input button*/
+ /* label color */
+   .input-field label {
+     color: #000;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #000;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #000 !important;
+     box-shadow: 0 1px 0 0 #000 !important;
+   }

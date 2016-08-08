@@ -4,8 +4,7 @@
 	<title>Recon</title>
 
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200' rel='stylesheet' type='text/css'>
-    
-    <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
     
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxJLjh0aRLee7dhnzn5IKAB37Hvfx1kOw&libraries=places"></script>
     
@@ -13,10 +12,13 @@
     
     <!--Import materialize.css-->
     
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
     
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    
+    <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
     
 </head>
 <body>
@@ -36,22 +38,23 @@
     
     
 <!-- Actual App -->
-    <!-- Actual App -->
-    <!-- Actual App -->
-    <!-- Actual App -->
-    <!-- Actual App -->
-    <!-- Actual App -->
-    <!-- Actual App -->
+<!-- Actual App -->
+<!-- Actual App -->
     
 <div class="full">
 <div class="row">
-    <div class="col-md-4" style = "padding-left: 3%;">
-    
-        <h1>Welcome to Recon</h1>
+    <div id = "bluegrad" class="col-md-4" style = "padding-left: 5%;">
+        
         <br>
         <br>
-        <div class="group">   
-        <input id="address" placeholder = "Example Address">
+        <img style = "width:100px" src="css/images/small_logo.png"/>
+        <br>
+        <br>
+        <h2 style="font-weight: 200; color: white !important">Welcome to Recon.</h1>
+        <br>
+        <br>
+        <div class="group input-field" style = "font-size: 16px">   
+        <input class = "input-field" id="address" placeholder = "Example Address">
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>Name</label>
@@ -60,9 +63,8 @@
         <br>
         <br>
 
-        <button id="additem">Add item</button>
-        <button id="calculate">Calculate</button>
-        <button id="maketable">Make Table</button>
+        <button id="calculate">Get Recon</button>
+        <button id="maketable">Tabulate</button>
         </div>
 
         <div id = "container">
@@ -80,16 +82,17 @@
           <tr>
               <th data-field="id">Address</th>
               <th data-field="name">Coffeeshops</th>
-              <th data-field="name">Grocery Stores</th>
+              <th data-field="name">Gyms</th>
               <th data-field="name">Subway Stations</th>
           </tr>
         </thead>
 
         <tbody id = "innerworkings">
           <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
+            <td>Test Address</td>
+            <td>1</td>
+            <td>0</td>
+            <td>2</td>
           </tr>
         </tbody>
       </table>
