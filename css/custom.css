@@ -85,52 +85,43 @@ font-weight: 300;
               color 0.3s ease-in;
 }
 
-/* input button*/
- /* label color */
-h1, input::-webkit-input-placeholder, button {
-  font-family: 'roboto', sans-serif;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-input {
-  width: 200px;
-  display: block;
-  border: none;
-  padding: 10px 0;
-  border-bottom: solid 1px #ffffff;
-  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #0071ef 4%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #0071ef 4%);
-  background-position: -200px 0;
-  background-size: 200px 100%;
-  background-repeat: no-repeat;
-  font-family: 'Source Sans Pro', sans-serif;
-  color: aliceblue;
-}
-input:focus, input:valid {
-  box-shadow: none;
-  outline: none;
-  background-position: 0 0;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
-  color: #ffffff;
-  font-size: 11px;
-  font-family: 'Source Sans Pro', sans-serif;
-  -webkit-transform: translateY(-20px);
-          transform: translateY(-20px);
-  visibility: visible !important;
-}
-
-
 /* adding a hover state*/
 li:hover {
-	background-color: aliceblue;
-	transition: 0.7s;
-	cursor: pointer;
+    background-color: #072da4;
+    transition: 0.7s;
+    cursor: pointer;
 }
 span{
 	float: right;
+}
+
+.form-control {
+    font-family: 'Source Sans Pro', sans-serif;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #fff !important;
+    background-color: #0071ef;
+    background-image: none;
+    border: transparent; 
+    border-radius: 4px;
+}
+
+
+input.form-control::-webkit-input-placeholder {
+  color: aliceblue;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #0071ef;
+    border: transparent;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
 }
