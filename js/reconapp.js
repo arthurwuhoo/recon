@@ -10,11 +10,12 @@ var geo_add = [];
 var coffee_store = [];
 var gyms_store = [];
 var subway_store = [];
+var grocery_store = [];
 
 var coffee_arr = [];
 var gyms_arr = [];
 var subway_arr = [];
-
+var grocery_arr = [];
 
 var result = "";
 var test_item;
@@ -86,6 +87,12 @@ function addressLookup(latitude,longitude, estab, distance) {
       zoom: 15
     });
     
+  marker = new google.maps.Marker({
+            position: testLocation,
+            map: map,
+            title: geo_add[i]
+        });
+
   var request = {
     location: testLocation,
     radius: distance.toString(),
@@ -103,6 +110,9 @@ if (estab == "subway_station"){
 if (estab == "gym"){    
     service.nearbySearch(request, callback_gym);    
     }
+if (estab == "grocery_or_supermarket"){
+    service.nearbySearch(request, callback_grocery);
+}
     
 }
 
@@ -125,7 +135,6 @@ function callback_coffee(results, status) {
 function callback_gym(results, status) {
 
     gyms_store = [];
-    
     
     if (status == google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
@@ -160,6 +169,23 @@ function callback_subway(results, status) {
   
 }
 
+function callback_grocery(results, status) {
+    grocery_store = [];
+    
+    if (status == google.maps.places.PlacesServiceStatus.OK) {  
+      for (var i = 0; i < results.length; i++) {
+        grocery_store.push(results[i]);
+    }
+    }
+    
+    if(grocery_store.length > 0){
+        grocery_arr.push(grocery_store.length);  
+    } else {
+        grocery_arr.push(0);
+    }
+  
+}
+
 
 // the coffee loop
 
@@ -174,21 +200,23 @@ function doSomethingFirst() {
 ///////////////////////////////////////////////////////////////////
 
 function calculator() {
-    
     coffee_arr = [];
     gyms_arr = [];
     subway_arr = [];
+    grocery_arr = [];
     
     for(i = 0; i < corLat.length; i++){
         //function 1
-        addressLookup(corLat[i], corLong[i], "cafe", 250);
-        addressLookup(corLat[i], corLong[i], "gym", 250);
-        addressLookup(corLat[i], corLong[i], "subway_station", 250);
+        addressLookup(corLat[i], corLong[i], "cafe", 500);
+        addressLookup(corLat[i], corLong[i], "gym", 500);
+        addressLookup(corLat[i], corLong[i], "subway_station", 500);
+        addressLookup(corLat[i], corLong[i], "grocery_or_supermarket", 500);    
+
     }
+    
 }
 
 $("#getrecon").click(function(){
-    doSomethingFirst();
     calculator();
 });
 
@@ -211,14 +239,29 @@ $("#address").keyup(function(e) {
 
 
 //load the list
-function loadList(items){
-		$('li').remove();
+var defaultList = [ "56 e 8 st, ny",
+                "140 e 14 st, ny",    
+                "15 little west 12 st, ny",
+                "30 rockefeller plaza, ny"
+                ];
+
+
+function loadList(items){	
+    $('li').remove();
 		if(items.length > 0) {
 			for(var i = 0; i < items.length; i++) {
 				$('ul').append('<li class= "list-group-item" data-toggle="modal" data-target="#editModal">' + items[i] + '<span class="glyphicon glyphicon-remove"></span</li>');
 			}
 		}
+    addresses = defaultList;
+    
+    for(i = 0; i < addresses.length; i++){
+        //input google search query here
+            geoCode(addresses[i]);
+        }
 	};
+
+loadList(defaultList);
 
 // deleting an item off the list
 $('ul').delegate("span", "click", function(event){
@@ -238,9 +281,66 @@ var fullarray;
 var newarray;
 var output;
 
+
+function mapGen(){
+    
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(corLat[0], corLong[0]),
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [
+            {
+              featureType: 'all',
+              stylers: [
+                { saturation: -80 }
+              ]
+            },{
+              featureType: 'road.arterial',
+              elementType: 'geometry',
+              stylers: [
+                { hue: '#00ffee' },
+                { saturation: 50 }
+              ]
+            },{
+              featureType: 'poi.business',
+              elementType: 'labels',
+              stylers: [
+                { visibility: 'off' }
+              ]
+            }
+          ]
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+    var bounds = new google.maps.LatLngBounds();
+
+    for (i = 0; i < corLat.length; i++) {  
+      
+        marker = new google.maps.Marker({
+        position: new google.maps.LatLng(corLat[i], corLong[i]),
+        map: map
+      });
+        
+      bounds.extend(marker.getPosition());
+        
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(geo_add[i]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+    
+    map.fitBounds(bounds);
+}
+
 $("#maketable").click(function(){
 
-fullarray = [geo_add, coffee_arr, gyms_arr, subway_arr];
+mapGen();    
+    
+fullarray = [geo_add, coffee_arr, gyms_arr, subway_arr, grocery_arr];
 
 // transpose this array
 newarray = fullarray[0].map(function(col, i) { 
