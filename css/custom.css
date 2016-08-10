@@ -10,7 +10,7 @@ html, body {
     padding: 0px;
 }
 
-#loading-mask {
+#loadingmask {
     background-color: white;
     height: 100%;
     left: 0;
