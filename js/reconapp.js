@@ -56,7 +56,7 @@ function geoCode(address){
 
 function addAddress() {
     addresses.push($("#address").val());
-    $('li').remove();
+    $('#thelist li').remove();
     $("#address").val("");
     geo_add = [];
     corLat = [];
@@ -199,7 +199,13 @@ function doSomethingFirst() {
 
 ///////////////////////////////////////////////////////////////////
 
+
+
 function calculator() {
+    var search_radius = parseFloat($("#radius").val());
+    search_radius = search_radius*1609.34;
+    console.log(search_radius);
+    
     coffee_arr = [];
     gyms_arr = [];
     subway_arr = [];
@@ -207,10 +213,10 @@ function calculator() {
     
     for(i = 0; i < corLat.length; i++){
         //function 1
-        addressLookup(corLat[i], corLong[i], "cafe", 500);
-        addressLookup(corLat[i], corLong[i], "gym", 500);
-        addressLookup(corLat[i], corLong[i], "subway_station", 500);
-        addressLookup(corLat[i], corLong[i], "grocery_or_supermarket", 500);    
+        addressLookup(corLat[i], corLong[i], "cafe", search_radius);
+        addressLookup(corLat[i], corLong[i], "gym", search_radius);
+        addressLookup(corLat[i], corLong[i], "subway_station", search_radius);
+        addressLookup(corLat[i], corLong[i], "grocery_or_supermarket", search_radius);    
 
     }
     
@@ -247,7 +253,7 @@ var defaultList = [ "56 e 8 st, ny",
 
 
 function loadList(items){	
-    $('li').remove();
+    $('#thelist li').remove();
 		if(items.length > 0) {
 			for(var i = 0; i < items.length; i++) {
 				$('ul').append('<li class= "list-group-item" data-toggle="modal" data-target="#editModal">' + items[i] + '<span class="glyphicon glyphicon-remove"></span</li>');
@@ -267,7 +273,7 @@ loadList(defaultList);
 $('ul').delegate("span", "click", function(event){
 		event.stopPropagation();
 		index = $('span').index(this);
-		$('li').eq(index).remove();
+		$('#thelist li').eq(index).remove();
     
 		addresses.splice(index, 1);
         corLat.splice(index, 1);
@@ -337,9 +343,12 @@ function mapGen(){
 }
 
 $("#maketable").click(function(){
+    makeTable();
+});
 
-mapGen();    
+function makeTable() {
     
+mapGen();  
 fullarray = [geo_add, coffee_arr, gyms_arr, subway_arr, grocery_arr];
 
 // transpose this array
@@ -349,7 +358,7 @@ newarray = fullarray[0].map(function(col, i) {
   })
 });
 output = makeTableHTML(newarray);
-});
+};
 
 
 // need to add some different 

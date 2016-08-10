@@ -1,11 +1,20 @@
-h1, h2, h3, h4, h5, h6, a, p {
+html, body, h1, h2, h3, h4, h5, h6, a, p, ol, ul, li {
 font-family: 'Source Sans Pro', sans-serif;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    height: 100%;
+    margin: 0px; 
+    padding: 0px;
 }
 
 
 .mainview {
     font-family: 'Source Sans Pro', sans-serif;
     padding-left: 0px !important;
+    overflow-x: hidden;
 }
 
 .full {
@@ -56,8 +65,7 @@ div.loader #logo {
 }
 
 #bluegrad {
-    height: 1000px;
-    overflow-y: hidden;
+    height: 100vh;
     background: #00B8FF; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(left top, #00B8FF, #007FFF); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(bottom right,  #00B8FF, #007FFF); /* For Opera 11.1 to 12.0 */
@@ -95,7 +103,7 @@ font-weight: 300;
 }
 
 /* adding a hover state*/
-li:hover {
+#thelist li:hover {
     background-color: #072da4;
     transition: 0.7s;
     cursor: pointer;

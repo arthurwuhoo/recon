@@ -48,20 +48,29 @@
         <br>
         <h2 style="font-weight: 200; color: white !important">Welcome to Recon.</h1>
         <br>
-        <p style = "color: white; font-size: 16px; font-weight: 200;">
-        Type in an address and press enter to add them to your recon set. </p>
-        <br>
-        <p style = "color: white; font-size: 16px;font-weight: 200;">
-        Once you've finished adding your addresses, press "get recon" to start collecting the results. Press "tabulate" to generate the table.
-        </p>
+        <ol style = "color: white; font-size: 16px;font-weight: 200;">
+        <li style="line-height: 1.5">Type in an address and press enter to add them to your recon set.</li>
+        <li style="line-height: 1.5">Once you've finished adding your addresses, press "get recon" to start collecting the results.</li>
+        <li style="line-height: 1.5">Press "show results" to generate the table and the map view.</li>
+        </ol>
+        
+
         <br>
         <div class="group input-field" style = "font-size: 16px">   
-       
             
             
         <!-- new shit -->
-        <div class="form-group">
-        <input id="address" type="text" class="form-control" placeholder="Type in an address.">
+        
+        
+        <div id= "labels" style="font-weight: 400; font-size: 14px; color:white">
+   
+        <div style="width: 62%; float: left;">Input Address</div>
+            <div style="margin-left: 40%;">Search Radius (miles) </div>
+        </div>
+            
+        <div class="form-group">    
+        <input id="address" type="text" class="form-control"  style="width:58%; display: inline;" placeholder="i.e. 123 Elm St, NY"/>
+        <input id = "radius" type="text" class="form-control" style="width:40%; display: inline;" placeholder="i.e. 0.25"></input>
         </div>
         <!-- new shit -->
     
@@ -74,11 +83,9 @@
         <br>
         <br>
         <button class = "ghost-button-transition" id="getrecon" style = "font-size: 14px">Get Recon</button>
-        <button  class = "ghost-button-transition" id="maketable" style = "font-size: 14px">Tabulate</button>
+        <button  class = "ghost-button-transition" id="maketable" style = "font-size: 14px">Show Results</button>
             </div>
         </div>
-
-    
 
     </div>
     <div class="col-md-8 mainview">
