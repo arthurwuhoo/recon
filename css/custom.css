@@ -129,7 +129,22 @@ span{
 
 
 input.form-control::-webkit-input-placeholder {
-  color: aliceblue;
+  color: #8ab8eb;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+   color: #8ab8eb;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: #8ab8eb;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #8ab8eb;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #8ab8eb;
 }
 
 .list-group-item {
