@@ -241,8 +241,11 @@ $("#getrecon").click(function(){
 
 // conditional events
 
+$("#loading").fadeIn("slow");
+
 $("#filler_button").click(function(){
  $("#loading").fadeOut("slow");
+ $("#loadingmask").fadeOut("slow");    
 });
 
 $("#additem").click(function(){
