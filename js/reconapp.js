@@ -35,10 +35,6 @@ nanobar.go( 76 ); // size bar 76%
 nanobar.go(100);
 
 
-window.onload = function() {
-    $("#loading-mask").remove();
-};
-
 function makeTableHTML(myArray) {
     var result = "<table border=1>";
     for(var i=0; i<myArray.length; i++) {
